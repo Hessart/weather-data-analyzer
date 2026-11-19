@@ -4,6 +4,7 @@ import pandas as pd
 
 from main import main
 
+
 class TestMain(unittest.TestCase):
 
     @patch("main.plot_temperature_history")
@@ -13,8 +14,10 @@ class TestMain(unittest.TestCase):
     @patch("main.analyze_humidity")
     @patch("main.analyze_temperature")
     @patch("main.load_data")
+    @patch("builtins.input", return_value="Sanok")
     def test_main_execution(
         self,
+        mock_input,
         mock_load,
         mock_temperature,
         mock_humidity,
